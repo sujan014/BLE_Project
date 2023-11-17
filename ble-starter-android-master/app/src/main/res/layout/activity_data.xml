@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2021 Punch Through Design LLC
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blue_gradient">
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    android:padding="10dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+        <Button
+            android:id="@+id/btnBleData"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:foreground="@drawable/ic_log_foreground"
+            android:background="@color/black"
+            />
+            <!--android:backgroundTint="#1154f8"-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="BLE data"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btnOpenFile"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:foreground="@drawable/ic_open_foreground"
+                android:background="@color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Open file"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <!--<FrameLayout
+        android:id="@+id/chartFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"/>-->
+    <LinearLayout
+        android:id="@+id/headerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/tvCountLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="#"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:background="@drawable/table_backgnd"
+            android:backgroundTint="#d0d0d0"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lobster_regular"
+            />
+        <TextView
+            android:id="@+id/tvDatetimelabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Date time"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:background="@drawable/table_backgnd"
+            android:backgroundTint="#d0d0d0"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lobster_regular"
+            />
+        <TextView
+            android:id="@+id/tvTempLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Temp C"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:background="@drawable/table_backgnd"
+            android:backgroundTint="#d0d0d0"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lobster_regular"
+            />
+
+        <TextView
+            android:id="@+id/tvHumidLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Humd %"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:background="@drawable/table_backgnd"
+            android:backgroundTint="#d0d0d0"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lobster_regular"
+            />
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDatatable"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/custom_border"
+        android:backgroundTint="#0f94ff"
+        />
+    <FrameLayout
+        android:id="@+id/chartFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2019 Punch Through Design LLC
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blue_gradient"
+    tools:context=".BleOperationsActivity"
+    >
+
+    <LinearLayout
+        android:id="@+id/mtu_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <!--<EditText
+            android:id="@+id/mtu_field"
+            android:hint="MTU value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:digits="01234567890"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/request_mtu_button"
+            android:layout_weight="1"
+            android:text="Request MTU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <Button
+                android:id="@+id/btnsaveData"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:foreground="@drawable/ic_save_foreground"
+                android:background="@color/black"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Save data"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <Button
+                android:id="@+id/btnViewData"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:foreground="@drawable/ic_search_foreground"
+                android:background="@color/black"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="View data"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <Button
+                android:id="@+id/btnNewPdf"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:foreground="@drawable/ic_pdf_foreground"
+                android:background="@color/black"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Make Pdf"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/progressbar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mtu_container"
+        >
+        <LinearLayout
+            android:id="@+id/layout_switch"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+                <!--android:backgroundTint="#00C0BC"-->
+                <Button
+                    android:id="@+id/btnInit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:foreground="@drawable/ic_init_foreground"
+                    android:background="@color/black"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    />
+
+                <Button
+                    android:id="@+id/btnSetting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:foreground="@drawable/ic_setting_foreground"
+                    android:background="@color/black"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    />
+
+                <Button
+                    android:id="@+id/btnStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:foreground="@drawable/ic_play_foreground"
+                    android:background="@color/white"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    />
+
+                <Button
+                    android:id="@+id/btnStop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:foreground="@drawable/ic_stop_foreground"
+                    android:background="@color/white"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    />
+
+                <Button
+                    android:id="@+id/btnPacket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:foreground="@drawable/ic_data_foreground"
+                    android:background="@color/black"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/stats_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/temp_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/thin_border"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Temperature"
+                        android:textColor="@color/white"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/castoro_italic"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_mintemp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Min: 0 C"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/castoro_italic"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_maxtemp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Max: 0 C"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/castoro_italic"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_avgtemp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Avg: 0 C"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/castoro_italic"
+                        />
+                    <TextView
+                        android:id="@+id/tv_measStart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Start: "
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/castoro_italic"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/humid_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/thin_border"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Humidity"
+                        android:textColor="@color/white"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/castoro_italic"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_minhumid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Min: 0 %"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/castoro_italic"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_maxhumid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Max: 0 %"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/castoro_italic"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_avghumid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Avg: 0 %"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/castoro_italic"
+                        />
+                    <TextView
+                        android:id="@+id/tv_measStop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Stop: "
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/castoro_italic"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            <FrameLayout
+                android:id="@+id/fragFrame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+    <ProgressBar
+        android:id="@+id/progressbar2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:indeterminateOnly="false"
+        android:progress="0"
+        android:progressDrawable="@drawable/progressbarview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+    <!--app:layout_constraintTop_toBottomOf="@+id/scrollview"-->
+    <!--app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"-->
+
+    <TextView
+        android:id="@+id/tvProgValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0%"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/progressbar2"
+        app:layout_constraintEnd_toEndOf="@+id/progressbar2"
+        app:layout_constraintStart_toStartOf="@+id/progressbar2"
+        app:layout_constraintTop_toTopOf="@+id/progressbar2"
+        />
+
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/ble_nav_menu"
+        android:background="#1154f8"
+        />-->
+    <ProgressBar
+        android:id="@+id/pdfProgressbar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:indeterminateTint="@color/design_default_color_secondary"
+        android:indeterminateTintMode="src_atop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="150dp"
+        android:visibility="gone"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
